@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    name: Verify quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Retrieve Git history, needed to verify commits
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+
+      - if: github.event_name == 'pull_request'
+        name: Validate all commits from PR
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+
+      - name: Linter
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint # will run `yarn lint` command
+
+      - name: Type checking
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: check-types # will run `yarn check-types` command
+
+      - name: Run unit tests
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: test # will run `yarn test` command
