@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --primary-color: #424B54;
-  --primary-color-light: #515C67;
+  --primary-color: #00965D;
   --autofill-background: rgb(232, 240, 254);
 }
 
@@ -24,7 +23,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border: none;
+  // border: none;
   -webkit-box-shadow: 0 0 0px 1000px var(--autofill-background) inset;
   box-shadow: 0 0 0px 1000px var(--autofill-background) inset;
 }

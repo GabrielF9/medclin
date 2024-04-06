@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require('@material-tailwind/react/utils/withMT');
 
-module.exports = withMT({
+module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontSize: {
@@ -18,8 +17,17 @@ module.exports = withMT({
     },
     extend: {
       colors: {
-        'primary-color': 'var(--primary-color)',
-        'primary-color-light': 'var(--primary-color-light)',
+        primary: {
+          100: '#B7FFE3',
+          200: '#6EFFC7',
+          300: '#26FFAC',
+          400: '#00DC88',
+          500: '#00965D',
+          600: '#007649',
+          700: '#005937',
+          800: '#003B24',
+          900: '#001E12',
+        },
         gray: {
           100: '#f7fafc',
           200: '#edf2f7',
@@ -52,7 +60,10 @@ module.exports = withMT({
           '100%': { opacity: 1 },
         },
       },
+      backgroundImage: {
+        'login-pattern': "url('/images/bg.png')",
+      },
     },
   },
   plugins: [],
-});
+};
