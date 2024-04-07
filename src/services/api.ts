@@ -12,7 +12,7 @@ const api = axios.create({
 
 api.interceptors.request.use(async (config) => {
   try {
-    const token = storage?.local.getItem('token');
+    const token = storage.local.getItem('token');
 
     if (token) {
       config.headers.token = `Bearer ${token}`;

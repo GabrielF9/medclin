@@ -3,7 +3,7 @@ import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 
-import { handleLogin } from './services';
+import { handleLogin } from './services/login';
 
 interface IFormValues {
   email: string;

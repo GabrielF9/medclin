@@ -12,6 +12,8 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   containerClassName?: string;
   register?: UseFormRegister<any>;
   validationSchema?: RegisterOptions;
+  registerWithMask?: any;
+  mask?: string | Array<string>;
 }
 
 const Input = ({
@@ -22,11 +24,18 @@ const Input = ({
   containerClassName,
   register,
   validationSchema,
+  registerWithMask,
+  mask,
   ...props
 }: InputProps) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const inputType = type === 'password' && isPasswordVisible ? 'text' : type;
+
+  const defaultRegister = register ? register(id, validationSchema) : {};
+  const registerInput = registerWithMask
+    ? registerWithMask(id, mask, validationSchema)
+    : defaultRegister;
 
   return (
     <div className={classNames('mb-4', containerClassName)}>
@@ -34,13 +43,13 @@ const Input = ({
         {label}
       </label>
 
-      <div className="autoFill flex w-full select-none gap-2 rounded-md border border-gray-300 px-3 py-2 duration-100 focus-within:border-gray-500 focus:outline-none">
+      <div className="autofill flex w-full select-none gap-2 rounded-md border border-gray-300 px-3 py-2 duration-100 focus-within:border-gray-500 focus:outline-none">
         {register && validationSchema ? (
           <input
             className="w-full select-none outline-none"
             id={id}
             type={inputType}
-            {...register(id, validationSchema)}
+            {...registerInput}
             {...props}
           />
         ) : (

@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
+const daisyui = require('daisyui');
+
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -65,5 +67,13 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [daisyui],
+  daisyui: {
+    themes: ['light'], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
+    base: true, // applies background color and foreground color for root element by default
+    styled: true, // include daisyUI colors and design decisions for all components
+    utils: true, // adds responsive and modifier utility classes
+    logs: false, // Shows info about daisyUI version and used config in the console when building your CSS
+    themeRoot: ':root', // The element that receives theme color CSS variables
+  },
 };

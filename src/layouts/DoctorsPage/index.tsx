@@ -1,11 +1,11 @@
 import AppLayout from '../AppLayout';
 
-const HomePage = () => {
+const DoctorsPage = () => {
   return (
     <AppLayout>
-      <h1>Home Page</h1>
+      <h1>Doctors Page</h1>
     </AppLayout>
   );
 };
 
-export default HomePage;
+export default DoctorsPage;

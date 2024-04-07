@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .td-mono {
+    font-family: 'Roboto Mono', monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  .autofill {
+    &:has(*:-webkit-autofill) {
+      background-color: var(--autofill-background);
+    }
+  }
+}
+
 :root {
   --primary-color: #00965D;
   --autofill-background: rgb(232, 240, 254);
@@ -26,10 +40,4 @@ select:-webkit-autofill:focus {
   // border: none;
   -webkit-box-shadow: 0 0 0px 1000px var(--autofill-background) inset;
   box-shadow: 0 0 0px 1000px var(--autofill-background) inset;
-}
-
-.autoFill {
-  &:has(*:-webkit-autofill) {
-    background-color: var(--autofill-background);
-  }
 }

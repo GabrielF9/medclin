@@ -94,8 +94,20 @@ const MedClinStorage = (storage: Storage) => {
 };
 
 const createStorage = () => {
+  const defaultStorage = {
+    getItem: () => null,
+    setItem: () => null,
+    removeItem: () => null,
+    clear: () => null,
+    getLength: () => 0,
+    clearWithPrefix: () => null,
+  };
+
   if (!isClient()) {
-    return null;
+    return {
+      local: defaultStorage,
+      session: defaultStorage,
+    };
   }
 
   return {
