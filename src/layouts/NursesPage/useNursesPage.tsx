@@ -10,18 +10,20 @@ const useNursePage = () => {
   const [selectedNurse, setSelectedNurse] = useState<Enfermeiro>();
 
   useEffect(() => {
-    if (!selectedNurse) {
+    if (!isNurseModalOpen) {
       setData(null);
 
-      handleGetNurses()
-        .then((response) => {
-          setData(response as Array<Enfermeiro>);
-        })
-        .catch((_) => {
-          toast.error('Erro ao buscar enfermeiras');
-        });
+      setTimeout(() => {
+        handleGetNurses()
+          .then((response) => {
+            setData(response as Array<Enfermeiro>);
+          })
+          .catch((_) => {
+            toast.error('Erro ao buscar enfermeiras');
+          });
+      }, 500);
     }
-  }, [selectedNurse]);
+  }, [isNurseModalOpen]);
 
   return {
     data,

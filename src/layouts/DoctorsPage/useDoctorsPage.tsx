@@ -10,18 +10,20 @@ const useDoctorsPage = () => {
   const [selectedDoctor, setSelectedDoctor] = useState<Medico>();
 
   useEffect(() => {
-    if (!selectedDoctor) {
+    if (!isDoctorModalOpen) {
       setData(null);
 
-      handleGetDoctors()
-        .then((response) => {
-          setData(response as Array<Medico>);
-        })
-        .catch((_) => {
-          toast.error('Erro ao buscar enfermeiras');
-        });
+      setTimeout(() => {
+        handleGetDoctors()
+          .then((response) => {
+            setData(response as Array<Medico>);
+          })
+          .catch((_) => {
+            toast.error('Erro ao buscar enfermeiras');
+          });
+      }, 500);
     }
-  }, [selectedDoctor]);
+  }, [isDoctorModalOpen]);
 
   return {
     data,

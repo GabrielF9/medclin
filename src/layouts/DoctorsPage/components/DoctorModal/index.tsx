@@ -99,7 +99,7 @@ const DoctorModal: FC<DoctorModalProps> = ({ doctor, onClose, ...props }) => {
             />
 
             <Input
-              label="crm"
+              label="CRM"
               type="text"
               id="crm"
               placeholder="000000/br"

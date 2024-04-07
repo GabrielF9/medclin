@@ -86,7 +86,6 @@ const useNurseModal = ({ nurse, onClose, setIsMounted }: IUseNurseModal) => {
       api
         .post('/enfermeiros', data)
         .then(() => {
-          console.log(data);
           toast.success('Enfermeiro cadastrado com sucesso');
         })
         .catch(() => {

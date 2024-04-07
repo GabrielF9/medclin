@@ -36,7 +36,7 @@ const DoctorPage = () => {
             <tr>
               <th>Nome</th>
               <th>CPF</th>
-              <th>Crm</th>
+              <th>CRM</th>
               <th>Email</th>
               <th>Telefone</th>
               <th>Data de Nascimento</th>
@@ -49,7 +49,7 @@ const DoctorPage = () => {
               <tr key={item.idMedico}>
                 <td>{`${item.usuario.nome} ${item.usuario.sobrenome}`}</td>
                 <td className="td-mono">{formatCPF(item.usuario.cpf)}</td>
-                <td>{item.crm}</td>
+                <td className="td-mono">{item.crm}</td>
                 <td>{item.usuario.email}</td>
                 <td className="td-mono">
                   {formatPhone(item.usuario.telefone)}

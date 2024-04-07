@@ -10,18 +10,20 @@ const useOfficePage = () => {
   const [selectedOffice, setSelectedOffice] = useState<Secretaria>();
 
   useEffect(() => {
-    if (!selectedOffice) {
+    if (!isOfficeModalOpen) {
       setData(null);
 
-      handleGetOffices()
-        .then((response) => {
-          setData(response as Array<Secretaria>);
-        })
-        .catch((_) => {
-          toast.error('Erro ao buscar atendentes');
-        });
+      setTimeout(() => {
+        handleGetOffices()
+          .then((response) => {
+            setData(response as Array<Secretaria>);
+          })
+          .catch((_) => {
+            toast.error('Erro ao buscar atendentes');
+          });
+      }, 500);
     }
-  }, [selectedOffice]);
+  }, [isOfficeModalOpen]);
 
   return {
     data,

@@ -86,7 +86,6 @@ const useDoctorModal = ({ doctor, onClose, setIsMounted }: IUseDoctorModal) => {
       api
         .post('/medicos', data)
         .then(() => {
-          console.log(data);
           toast.success('Medico cadastrado com sucesso');
         })
         .catch(() => {

@@ -18,11 +18,12 @@ const NursesPage = () => {
   } = useNursePage();
 
   if (!data) {
-    return <AppLayoutSkeleton title="Enfermeiro" />;
+    return <AppLayoutSkeleton title="Enfermeiros" />;
   }
+
   return (
     <AppLayout>
-      <h1 className="text-2xl font-bold text-primary-500">Enfermeiro</h1>
+      <h1 className="text-2xl font-bold text-primary-500">Enfermeiros</h1>
       <Button className="mt-3" onClick={() => setIsNurseModalOpen(true)}>
         <Plus width={20} height={20} />
         <span>Novo</span>
@@ -34,7 +35,7 @@ const NursesPage = () => {
             <tr>
               <th>Nome</th>
               <th>CPF</th>
-              <th>numero de registro</th>
+              <th>Número de Registro</th>
               <th>Email</th>
               <th>Telefone</th>
               <th>Data de Nascimento</th>
@@ -46,7 +47,7 @@ const NursesPage = () => {
               <tr key={item.idEnfermeiro}>
                 <td>{`${item.usuario.nome} ${item.usuario.sobrenome}`}</td>
                 <td className="td-mono">{formatCPF(item.usuario.cpf)}</td>
-                <td>{item.numeroRegistro}</td>
+                <td className="td-mono">{item.numeroRegistro}</td>
                 <td>{item.usuario.email}</td>
                 <td className="td-mono">
                   {formatPhone(item.usuario.telefone)}
