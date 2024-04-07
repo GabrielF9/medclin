@@ -1,12 +1,11 @@
+import classNames from 'classnames';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { LogOut } from 'react-feather';
 import { tv } from 'tailwind-variants';
 
-import Doctor from '@/icons/doctor_female.svg';
-import HealthWorker from '@/icons/health_worker.svg';
-import Hospital from '@/icons/hospital.svg';
-import Nurse from '@/icons/nurse.svg';
+import { SIDEBAR_ITEMS } from './contants';
+import S from './Sidebar.module.scss';
 
 const buttonStyle = tv({
   base: 'relative flex h-10 w-full items-center justify-center text-white duration-100 after:absolute after:inset-0 after:hidden after:h-full after:w-1 after:bg-white after:duration-100 hover:bg-white/20 hover:after:flex',
@@ -32,47 +31,22 @@ const Sidebar = () => {
           height={32}
         />
 
-        <button
-          type="button"
-          onClick={() => router.push('/home')}
-          className={buttonStyle({ active: router.pathname === '/home' })}
-          aria-label="Início"
-        >
-          <Hospital width={30} height={30} />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => router.push('/gerencia/medicos')}
-          className={buttonStyle({
-            active: router.pathname === '/gerencia/medicos',
-          })}
-          aria-label="Médicos"
-        >
-          <Doctor width={30} height={30} />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => router.push('/gerencia/enfermeiros')}
-          className={buttonStyle({
-            active: router.pathname === '/gerencia/enfermeiros',
-          })}
-          aria-label="Enfermeiros"
-        >
-          <Nurse width={30} height={30} />
-        </button>
-
-        <button
-          type="button"
-          onClick={() => router.push('/gerencia/atendentes')}
-          className={buttonStyle({
-            active: router.pathname === '/gerencia/atendentes',
-          })}
-          aria-label="Atendentes"
-        >
-          <HealthWorker width={30} height={30} />
-        </button>
+        {SIDEBAR_ITEMS.map((item) => (
+          <button
+            key={item.path}
+            type="button"
+            onClick={() => router.push(item.path)}
+            className={classNames(
+              buttonStyle({
+                active: router.pathname === item.path,
+              }),
+              `${S.hoverLabel}`
+            )}
+            aria-label={item.label}
+          >
+            <item.icon width={30} height={30} />
+          </button>
+        ))}
       </div>
 
       <div className="w-full">

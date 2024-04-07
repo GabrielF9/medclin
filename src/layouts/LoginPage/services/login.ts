@@ -6,9 +6,10 @@ export const handleLogin = async (email: string, password: string) => {
     api
       .post('/login', { email, senha: password })
       .then((response) => {
-        const { token } = response.data;
+        const { token, ...user } = response.data;
 
         storage.local.setItem('token', token);
+        storage.local.setItem('user', user);
 
         resolve(response.data);
       })
