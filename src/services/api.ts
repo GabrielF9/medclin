@@ -15,7 +15,7 @@ api.interceptors.request.use(async (config) => {
     const token = storage.local.getItem('token');
 
     if (token) {
-      config.headers.token = `Bearer ${token}`;
+      config.headers.token = `${token}`;
     }
 
     return config;

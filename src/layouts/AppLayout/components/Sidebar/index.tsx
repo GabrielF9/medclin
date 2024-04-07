@@ -65,9 +65,9 @@ const Sidebar = () => {
 
         <button
           type="button"
-          onClick={() => router.push('/gerencia/secretaria')}
+          onClick={() => router.push('/gerencia/atendentes')}
           className={buttonStyle({
-            active: router.pathname === '/gerencia/secretaria',
+            active: router.pathname === '/gerencia/atendentes',
           })}
           aria-label="Atendentes"
         >

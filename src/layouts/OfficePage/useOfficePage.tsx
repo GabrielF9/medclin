@@ -18,7 +18,7 @@ const useOfficePage = () => {
           setData(response as Array<Secretaria>);
         })
         .catch((_) => {
-          toast.error('Erro ao buscar secretarias');
+          toast.error('Erro ao buscar atendentes');
         });
     }
   }, [selectedOffice]);

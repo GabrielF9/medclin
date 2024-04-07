@@ -18,7 +18,7 @@ const OfficePage = () => {
   } = useOfficePage();
 
   if (!data) {
-    return <AppLayoutSkeleton title="Secretaria" />;
+    return <AppLayoutSkeleton title="Atendentes" />;
   }
 
   return (
