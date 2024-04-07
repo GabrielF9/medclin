@@ -18,7 +18,7 @@ const DoctorPage = () => {
   } = useDoctorsPage();
 
   if (!data) {
-    return <AppLayoutSkeleton title="Medico" />;
+    return <AppLayoutSkeleton title="Médicos" />;
   }
 
   return (

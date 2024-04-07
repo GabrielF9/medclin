@@ -19,7 +19,7 @@ const useDoctorsPage = () => {
             setData(response as Array<Medico>);
           })
           .catch((_) => {
-            toast.error('Erro ao buscar enfermeiras');
+            toast.error('Erro ao buscar médicos');
           });
       }, 500);
     }
