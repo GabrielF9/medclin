@@ -11,10 +11,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const buttonStyle = tv({
-  base: 'flex min-w-[120px] items-center justify-center gap-2 rounded-md px-4 py-2 font-semibold text-white transition-colors duration-300 ease-in-out disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary-500 disabled:hover:text-white',
+  base: 'flex min-w-[120px] items-center justify-center gap-2 rounded-md px-4 py-2 font-bold text-white transition-colors duration-300 ease-in-out disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-primary-500 disabled:hover:text-white',
   variants: {
     hierarchy: {
-      primary: 'bg-primary-500 hover:bg-primary-600',
+      primary: 'bg-primary-500 text-[19px] hover:bg-primary-600',
       secondary:
         'border border-primary-500 bg-white text-primary-500 hover:bg-primary-500 hover:text-white',
       link: 'bg-transparent text-primary-500 hover:underline',
