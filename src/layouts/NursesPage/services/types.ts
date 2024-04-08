@@ -1,5 +1,5 @@
 export interface Enfermeiro {
-  idEnfermeiro: number;
+  idEnfermeiro: string;
   especialidade: string;
   numeroRegistro: string;
   usuario: User;

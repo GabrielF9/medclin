@@ -1,7 +1,7 @@
 import RequestsPage from '@/layouts/RequestsPage';
 
-const Requisicao = () => {
+const Requests = () => {
   return <RequestsPage />;
 };
 
-export default Requisicao;
+export default Requests;

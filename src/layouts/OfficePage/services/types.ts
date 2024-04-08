@@ -1,5 +1,5 @@
 export interface Secretaria {
-  idSecretaria: number;
+  idSecretaria: string;
   ala: string;
   usuario: User;
 }

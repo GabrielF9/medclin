@@ -1,10 +1,11 @@
-import { AlertTriangle, Edit, Plus } from 'react-feather';
+import { AlertTriangle, Edit, Plus, Trash2 } from 'react-feather';
 
 import Button from '@/components/Button';
 import { formatCPF } from '@/utils/formatters';
 
 import AppLayout from '../AppLayout';
 import AppLayoutSkeleton from '../AppLayout/AppLayoutSkeleton';
+import DeleteRequestModal from './components/DeleteRequestModal';
 import RequestModal from './components/RequestModal';
 import useRequestsPage from './useRequestsPage';
 
@@ -15,6 +16,9 @@ const RequestsPage = () => {
     setIsRequestModalOpen,
     selectedRequest,
     setSelectedRequest,
+    isDeleteRequestModalOpen,
+    setIsDeleteRequestModalOpen,
+    handleData,
   } = useRequestsPage();
 
   if (!data) {
@@ -69,17 +73,31 @@ const RequestsPage = () => {
                   )}
                 </td>
                 <td>
-                  <button
-                    aria-label="Editar"
-                    type="button"
-                    className="text-primary-500 duration-100 hover:text-primary-600"
-                    onClick={() => {
-                      setSelectedRequest(item);
-                      setIsRequestModalOpen(true);
-                    }}
-                  >
-                    <Edit width={20} height={20} />
-                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      aria-label="Editar"
+                      type="button"
+                      className="text-primary-500 duration-100 hover:text-primary-600"
+                      onClick={() => {
+                        setSelectedRequest(item);
+                        setIsRequestModalOpen(true);
+                      }}
+                    >
+                      <Edit width={20} height={20} />
+                    </button>
+
+                    <button
+                      aria-label="Editar"
+                      type="button"
+                      className="text-red-500 duration-100 hover:text-red-600"
+                      onClick={() => {
+                        setSelectedRequest(item);
+                        setIsDeleteRequestModalOpen(true);
+                      }}
+                    >
+                      <Trash2 width={20} height={20} />
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -95,6 +113,16 @@ const RequestsPage = () => {
           onClose={() => setSelectedRequest(undefined)}
         />
       )}
+
+      <DeleteRequestModal
+        request={selectedRequest}
+        isMounted={isDeleteRequestModalOpen}
+        setIsMounted={setIsDeleteRequestModalOpen}
+        onClose={() => {
+          setSelectedRequest(undefined);
+          handleData();
+        }}
+      />
     </AppLayout>
   );
 };

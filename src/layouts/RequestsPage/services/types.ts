@@ -1,5 +1,5 @@
 export interface Requisicao {
-  idRequisicao: number;
+  idRequisicao: string;
   titulo: string;
   descricao: string;
   urgente: boolean;
