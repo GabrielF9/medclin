@@ -3,7 +3,7 @@ import Doctor from '@/icons/doctor_female.svg';
 import HealthWorker from '@/icons/health_worker.svg';
 import Hospital from '@/icons/hospital.svg';
 import Nurse from '@/icons/nurse.svg';
-import Patient from "@/icons/paciente.svg";
+import Patient from '@/icons/paciente.svg';
 
 export const SIDEBAR_ITEMS = [
   {

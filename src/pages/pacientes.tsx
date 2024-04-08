@@ -1,7 +1,7 @@
-import PatientPage from "@/layouts/PatientPage";
+import PatientPage from '@/layouts/PatientPage';
 
 const Paciente = () => {
-    return <PatientPage />
-}
+  return <PatientPage />;
+};
 
 export default Paciente;
