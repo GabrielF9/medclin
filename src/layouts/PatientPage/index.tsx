@@ -1,6 +1,7 @@
 import { Edit, Plus } from 'react-feather';
 
 import Button from '@/components/Button';
+import { formatDate, formatPhone } from '@/utils/formatters';
 
 import AppLayout from '../AppLayout';
 import AppLayoutSkeleton from '../AppLayout/AppLayoutSkeleton';
@@ -17,7 +18,7 @@ const PatientPage = () => {
   } = usePatientsPage();
 
   if (!data) {
-    return <AppLayoutSkeleton title="Requisições" />;
+    return <AppLayoutSkeleton title="Pacientes" />;
   }
 
   return (
@@ -46,8 +47,8 @@ const PatientPage = () => {
               <tr key={item.cpf}>
                 <td>{item.nome}</td>
                 <td>{item.email}</td>
-                <td>{item.telefone}</td>
-                <td>{item.dataNascimento} </td>
+                <td>{formatPhone(item.telefone)}</td>
+                <td>{formatDate(item.dataNascimento)}</td>
                 <td>
                   <button
                     aria-label="Editar"

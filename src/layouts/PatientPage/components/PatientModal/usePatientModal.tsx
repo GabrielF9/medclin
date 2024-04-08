@@ -80,13 +80,9 @@ const usePatientModal = ({
         return;
       }
 
-      // const user = storage.local.getItem('user');
-      // const userCpf = user?.cpf;
-
       api
         .post('/paciente', { ...data })
         .then(() => {
-          console.log(data);
           toast.success('Requisição cadastrada com sucesso');
         })
         .catch(() => {

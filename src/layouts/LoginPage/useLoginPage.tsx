@@ -31,7 +31,7 @@ const useLoginPage = () => {
       await handleLogin(data.email, data.password);
 
       setTimeout(() => {
-        router.push('/home');
+        router.push('/escala');
       }, 500);
     } catch (error) {
       setGeneralError('Usuário ou senha inválidos');
