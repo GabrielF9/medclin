@@ -1,5 +1,5 @@
 export interface Medico {
-  idMedico: number;
+  idMedico: string;
   especialidade: string;
   crm: string;
   usuario: User;
